@@ -1,10 +1,27 @@
-
-import { Grid, Container, Box, Button, TextField } from "@mui/material";
+import {
+  Paper,
+  Grid,
+  Container,
+  Box,
+  Button,
+  TextField,
+  Typography,
+} from "@mui/material";
 import React from "react";
-import SendIcon from '@mui/icons-material/Send';
+import SendIcon from "@mui/icons-material/Send";
 // import "../css/MainContact.css";
 import { useState } from "react";
-import { Table } from "react-bootstrap";
+
+import Carousel from "react-material-ui-carousel";
+import { styled } from "@mui/material/styles";
+
+const Img = styled("img")({
+  width: 100,
+  height: "100%",
+  objectFit: "cover",
+  objectPosition: "center",
+  borderRadius: 50,
+});
 const MainContact = () => {
   const consultas = [
     {
@@ -41,10 +58,6 @@ const MainContact = () => {
   const [descripcion, setDescripcion] = useState("");
   //const [id, setId] = useState(null);
 
-  const deleteConsulta = (id) => {
-    const resultado = pedidos.filter((pedido) => pedido.id !== id);
-    setPedidos(resultado);
-  };
   const nuevoID = () => {
     const ultimoObjeto = pedidos[pedidos.length - 1];
     const ultimoId = ultimoObjeto ? ultimoObjeto.id : 0;
@@ -58,23 +71,36 @@ const MainContact = () => {
     alert("Gracias me contactare con tigo 😉");
     e.target.reset();
   };
-
-  
-
-  
+  const deleteConsulta = (id) => {
+    const resultado = pedidos.filter((pedido) => pedido.id !== id);
+    setPedidos(resultado);
+  };
 
   return (
     <>
       <Container maxWidth={false} sx={{ bgcolor: "#526D82", color: "white" }}>
         <Grid container spacing={2}>
-          <Grid item xs={12} sm={12}>
-            <h1 className="text-center">Contactame</h1>
+          <Grid textAlign="center" item xs={12} sm={12}>
+            <br />
+            <Typography variant="h2" color="white">
+              Contactame
+            </Typography>
             <br />
             <br />
           </Grid>
           <Grid item xs={12} sm={12} md={4}>
-            <Box textAlign='center' component="form" onSubmit={agregarConsulta} sx={{border:1,borderColor: "#9DB2BF",borderRadius:2,
-            p:1,mb:2}}>
+            <Box
+              textAlign="center"
+              component="form"
+              onSubmit={agregarConsulta}
+              sx={{
+                border: 1,
+                borderColor: "#9DB2BF",
+                borderRadius: 2,
+                p: 1,
+                mb: 2,
+              }}
+            >
               <TextField
                 label="Nombre"
                 id="nombre"
@@ -97,7 +123,7 @@ const MainContact = () => {
                 onChange={(e) => setNombre(e.target.value)}
                 sx={{ mt: 1 }}
               />
-              
+
               <TextField
                 label="E-mail"
                 id="email"
@@ -120,8 +146,8 @@ const MainContact = () => {
                 onChange={(e) => setEmail(e.target.value)}
                 sx={{ mt: 1 }}
               />
-              
-                  <TextField
+
+              <TextField
                 label="Descripcion"
                 id="description"
                 InputLabelProps={{
@@ -159,8 +185,49 @@ const MainContact = () => {
             </Box>
           </Grid>
 
-          <Grid item xs={12} sm={12} md={8}>
-            <div className="contact">
+          <Grid sx={{ml:2}} item xs={12} sm={12} md={7.8}>
+            <Carousel sx={{
+                  
+                  transition: "0.2s",
+                  "&:hover": {
+                    transform: "scale(1.06)",
+                  },
+                }}>
+              {pedidos.map((item) => (
+                <Box key={item.id}  >
+                  <Paper
+                    sx={{
+                      gap: 2,
+                      overflow: "hidden",
+                      
+                      padding: 3,
+                    }}
+                  >
+                    <Box sx={{ display: "flex" }}>
+                      <Img src={`https://picsum.photos/id/${item.id}/100`} alt="random" />
+                      <Box sx={{ ml: 2 }}>
+                        <Typography variant="h2" sx={{ marginBottom: "4px" }}>
+                          {item.nombre}
+                        </Typography>
+                        <Typography variant="h6" sx={{ marginTop: "4px" }}>
+                          {item.email}
+                        </Typography>
+                      </Box>
+                    </Box>
+                    <Box textAlign="center" sx={{ flexGrow: 1 }}>
+                      <p>{item.descripcion}</p>
+                      <Button onClick={() => deleteConsulta(item.id)}>
+                        Eliminar
+                      </Button>
+                    </Box>
+                    <Box component="p" sx={{ mr: 2 }}></Box>
+                  </Paper>
+                </Box>
+              ))}
+            </Carousel>
+            <br></br>
+
+            {/* <div className="contact">
               <div className="form-table">
                 <div className="tabla">
                   <Table striped bordered hover className="container">
@@ -194,7 +261,7 @@ const MainContact = () => {
                   </Table>
                 </div>
               </div>
-            </div>
+            </div> */}
           </Grid>
         </Grid>
       </Container>
