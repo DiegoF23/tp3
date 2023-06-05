@@ -9,12 +9,31 @@ import {
 } from "@mui/material";
 import React from "react";
 import SendIcon from "@mui/icons-material/Send";
-// import "../css/MainContact.css";
 import { useState } from "react";
 
 import Carousel from "react-material-ui-carousel";
 import { styled } from "@mui/material/styles";
+import DeleteIcon from "@mui/icons-material/Delete";
+import { enqueueSnackbar } from "notistack";
 
+const sucessClick = () => {
+  enqueueSnackbar("Enviado con Exito, me contactare a la brevedad 😉", {
+    variant: "success",
+    anchorOrigin: {
+      vertical: "top",
+      horizontal: "left",
+    },
+  });
+};
+const deleteClick = () => {
+  enqueueSnackbar("Se Elimino la consulta 😕", {
+    variant: "error",
+    anchorOrigin: {
+      vertical: "top",
+      horizontal: "right",
+    },
+  });
+};
 const Img = styled("img")({
   width: 100,
   height: "100%",
@@ -33,7 +52,7 @@ const MainContact = () => {
     },
     {
       id: 2,
-      nombre: "Enzo Gonzales",
+      nombre: "Enzo Gonzalez",
       email: "enzito@gmail.com",
       descripcion: "Hola cual es el presupuesto de los proyectos en React",
     },
@@ -68,12 +87,14 @@ const MainContact = () => {
     e.preventDefault();
     const nuevoId = nuevoID();
     setPedidos([...pedidos, { id: nuevoId, nombre, email, descripcion }]);
-    alert("Gracias me contactare con tigo 😉");
+   
+    sucessClick();
     e.target.reset();
   };
   const deleteConsulta = (id) => {
     const resultado = pedidos.filter((pedido) => pedido.id !== id);
     setPedidos(resultado);
+    deleteClick();
   };
 
   return (
@@ -96,9 +117,14 @@ const MainContact = () => {
               sx={{
                 border: 1,
                 borderColor: "#9DB2BF",
+
                 borderRadius: 2,
                 p: 1,
                 mb: 2,
+                transition: "0.2s",
+                "&:hover": {
+                  transform: "scale(1.06)",
+                },
               }}
             >
               <TextField
@@ -178,34 +204,46 @@ const MainContact = () => {
                 color="success"
                 size="large"
                 endIcon={<SendIcon />}
-                sx={{ mt: 2 }}
+                
+                sx={{
+                  mt: 2,
+                  mb:1.2,
+                  transition: "0.2s",
+                  "&:hover": {
+                    transform: "scale(1.06)",
+                  },
+                }}
               >
                 Enviar
               </Button>
             </Box>
           </Grid>
 
-          <Grid sx={{ml:2}} item xs={12} sm={12} md={7.8}>
-            <Carousel sx={{
-                  
-                  transition: "0.2s",
-                  "&:hover": {
-                    transform: "scale(1.06)",
-                  },
-                }}>
+          <Grid sx={{ ml: 2 }} item xs={12} sm={12} md={7.4} lg={7.8}>
+            <Carousel
+              sx={{
+                transition: "0.2s",
+                "&:hover": {
+                  transform: "scale(1.06)",
+                },
+              }}
+            >
               {pedidos.map((item) => (
-                <Box key={item.id}  >
+                <Box key={item.id}>
                   <Paper
                     sx={{
                       gap: 2,
                       overflow: "hidden",
-                      
+                      backgroundColor: "#9DB2BF",
                       padding: 3,
                     }}
                   >
-                    <Box sx={{ display: "flex" }}>
-                      <Img src={`https://picsum.photos/id/${item.id}/100`} alt="random" />
-                      <Box sx={{ ml: 2 }}>
+                    <Box sx={{ display: "flex" ,alignItems:"center" , flexDirection:"column"}}>
+                      <Img
+                        src={`https://picsum.photos/id/${item.id}/100`}
+                        alt="random"
+                      />
+                      <Box textAlign={"center"} sx={{ ml: 2 }}>
                         <Typography variant="h2" sx={{ marginBottom: "4px" }}>
                           {item.nombre}
                         </Typography>
@@ -216,52 +254,30 @@ const MainContact = () => {
                     </Box>
                     <Box textAlign="center" sx={{ flexGrow: 1 }}>
                       <p>{item.descripcion}</p>
-                      <Button onClick={() => deleteConsulta(item.id)}>
+                      <Button
+                        size="large"
+                        startIcon={<DeleteIcon />}
+                        variant="contained"
+                        color="error"
+                        onClick={() => deleteConsulta(item.id)}
+                        sx={{
+                          mt: 3,
+                         
+                          transition: "0.2s",
+                          "&:hover": {
+                            transform: "scale(1.07)",
+                          },
+                        }}
+                      >
                         Eliminar
                       </Button>
                     </Box>
-                    <Box component="p" sx={{ mr: 2 }}></Box>
+                    
                   </Paper>
                 </Box>
               ))}
             </Carousel>
             <br></br>
-
-            {/* <div className="contact">
-              <div className="form-table">
-                <div className="tabla">
-                  <Table striped bordered hover className="container">
-                    <thead>
-                      <tr>
-                        <th>Id</th>
-                        <th>Nombre </th>
-                        <th>Email</th>
-                        <th>Descripcion</th>
-                        <th>acciones</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {pedidos.map((pedido) => (
-                        <tr key={pedido.id}>
-                          <td>{pedido.id}</td>
-                          <td>{pedido.nombre}</td>
-                          <td>{pedido.email}</td>
-                          <td>{pedido.descripcion}</td>
-                          <td>
-                            <button
-                              className="btn btn-danger"
-                              onClick={() => deleteConsulta(pedido.id)}
-                            >
-                              eliminar 😕
-                            </button>
-                          </td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </Table>
-                </div>
-              </div>
-            </div> */}
           </Grid>
         </Grid>
       </Container>
