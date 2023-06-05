@@ -1,17 +1,57 @@
-import Home from "./pages/Home"
-import {BrowserRouter,Routes,Route} from "react-router-dom"
-function App() {
- 
+import Home from "./pages/Home";
+import { Routes, Route } from "react-router-dom";
+import Contact from "./pages/Contact";
+import About from "./pages/About";
+import HomeIcon from "@mui/icons-material/Home";
+import ContactMailIcon from "@mui/icons-material/ContactMail";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import Perfil from "./assets/perfil.jpeg";
+const navArrayLinks = [
+  {
+    title: "Home",
+    path: "/",
+    icon: <HomeIcon />,
+  },
+  {
+    title: "Contact",
+    path: "/Contact",
+    icon: <ContactMailIcon />,
+  },
+  {
+    title: "About",
+    path: "/About",
+    icon: <AccountCircleIcon />,
+  },
+  
+  
+];
+const User = {
+  usuario: "Flores Aguirres Diego",
+  imgPerfil: Perfil,
+  color: "#27374D",
+  CFuente: "#DDE6ED",
+  CIcon: "#DDE6ED",
+};
 
+function App() {
   return (
     <>
-      <BrowserRouter>
-       <Routes>
-        <Route path="/" element={<Home/>} />
-       </Routes>
-      </BrowserRouter>
+      <Routes>
+        <Route
+          path="/"
+          element={<Home navArrayLinks={navArrayLinks} User={User} />}
+        />
+        <Route
+          path="/Contact"
+          element={<Contact navArrayLinks={navArrayLinks} User={User} />}
+        />
+        <Route
+          path="/About"
+          element={<About navArrayLinks={navArrayLinks} User={User} />}
+        />
+      </Routes>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

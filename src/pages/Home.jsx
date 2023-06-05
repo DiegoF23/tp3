@@ -1,24 +1,22 @@
-import React from 'react'
-import Grid from "@mui/material/Grid";
+import React from "react";
+
 import Container from "@mui/material/Container";
-import Typography from '@mui/material/Typography'
-import Header from "../components/Header"
-import MainHome from '../components/MainHome';
-import Footer from '../components/Footer';
 
+import Header from "../components/Header";
+import MainHome from "../components/MainHome";
+import Footer from "../components/Footer";
 
-const Home = () => {
+const Home = ({navArrayLinks,User}) => {
+ 
   return (
-   <>
-         <Header/>
-         <MainHome/>
-         <Footer/>
-   </>
-     
-     
-     
-   
-  )
-}
+    <>
+      <Header navArrayLinks={navArrayLinks}  User={User}/>
+      <Container sx={{ mt: 11 }}>
+        <MainHome />
+        <Footer />
+      </Container>
+    </>
+  );
+};
 
-export default Home
+export default Home;

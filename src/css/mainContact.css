@@ -1,0 +1,27 @@
+.contact{
+    background-color: #394867;
+    color: white;
+    height:100%;
+    position:relative;
+    z-index: 1;
+    margin-top: 100px;
+}
+
+.form-table{
+    display: flex;
+}
+.form {
+    width: 800px;
+}
+.tabla{
+    color: white;
+    width: 50%;
+}
+.container {
+    color: white;
+}
+.text-center{
+    font-family: 'Bebas Neue', sans-serif;
+    font-family: 'Roboto Slab', serif;
+    font-size: 4em;
+}
