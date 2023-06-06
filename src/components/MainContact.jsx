@@ -101,7 +101,7 @@ const MainContact = () => {
     <>
       <Container maxWidth={false} sx={{ bgcolor: "#526D82", color: "white" }}>
         <Grid container spacing={2}>
-          <Grid textAlign="center" item xs={12} sm={12}>
+          <Grid sx={{mt:13}} textAlign="center" item xs={12} sm={12}>
             <br />
             <Typography variant="h2" color="white">
               Contactame
@@ -221,6 +221,7 @@ const MainContact = () => {
 
           <Grid sx={{ ml: 2 }} item xs={12} sm={12} md={7.4} lg={7.8}>
             <Carousel
+            
               sx={{
                 transition: "0.2s",
                 "&:hover": {
@@ -235,7 +236,7 @@ const MainContact = () => {
                       gap: 2,
                       overflow: "hidden",
                       backgroundColor: "#9DB2BF",
-                      padding: 3,
+                      padding: 0.8,
                     }}
                   >
                     <Box sx={{ display: "flex" ,alignItems:"center" , flexDirection:"column"}}>
@@ -244,10 +245,10 @@ const MainContact = () => {
                         alt="random"
                       />
                       <Box textAlign={"center"} sx={{ ml: 2 }}>
-                        <Typography variant="h2" sx={{ marginBottom: "4px" }}>
+                        <Typography variant="h3" sx={{ marginBottom: "2px" }}>
                           {item.nombre}
                         </Typography>
-                        <Typography variant="h6" sx={{ marginTop: "4px" }}>
+                        <Typography variant="h6" sx={{ marginTop: "2px" }}>
                           {item.email}
                         </Typography>
                       </Box>
@@ -261,7 +262,7 @@ const MainContact = () => {
                         color="error"
                         onClick={() => deleteConsulta(item.id)}
                         sx={{
-                          mt: 3,
+                          my: 1,
                          
                           transition: "0.2s",
                           "&:hover": {

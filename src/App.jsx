@@ -6,6 +6,8 @@ import HomeIcon from "@mui/icons-material/Home";
 import ContactMailIcon from "@mui/icons-material/ContactMail";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import Perfil from "./assets/perfil.jpeg";
+import { Box, Container } from "@mui/material";
+
 const navArrayLinks = [
   {
     title: "Home",
@@ -35,7 +37,7 @@ const User = {
 
 function App() {
   return (
-    <>
+    <Box height={"101.7vh"} bgcolor={"#DDE6ED"} >
       <Routes>
         <Route
           path="/"
@@ -50,7 +52,7 @@ function App() {
           element={<About navArrayLinks={navArrayLinks} User={User} />}
         />
       </Routes>
-    </>
+    </Box>
   );
 }
 

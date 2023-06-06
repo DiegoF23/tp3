@@ -8,8 +8,7 @@ const Contact = ({navArrayLinks,User}) => {
   return (
     <>
     <Header navArrayLinks={navArrayLinks} User={User}/>
-    <Grid sx={{mt:11
-    }}>
+    <Grid >
       <MainContact/>
       <Footer/>
      </Grid>
