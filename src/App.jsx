@@ -26,6 +26,7 @@ const navArrayLinks = [
   },
   
   
+  
 ];
 const User = {
   usuario: "Flores Aguirres Diego",
