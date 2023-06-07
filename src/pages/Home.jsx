@@ -13,7 +13,7 @@ const Home = ({navArrayLinks,User}) => {
       <Header navArrayLinks={navArrayLinks}  User={User}/>
       <Container sx={{ mt: 11 }}>
         <MainHome />
-        <Footer />
+        <Footer User={User}/>
       </Container>
     </>
   );

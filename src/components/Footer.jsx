@@ -7,7 +7,7 @@ import Grid from "@mui/material/Grid";
 import { Facebook, Instagram, Twitter } from "@mui/icons-material";
 import GitHubIcon from '@mui/icons-material/GitHub';
 import { Box } from "@mui/material";
-const Footer = () => {
+const Footer = ({User}) => {
   return (
     <>
     <Box
@@ -24,7 +24,7 @@ const Footer = () => {
               About Me
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              Soy un estudiante de programacion de la UTN-FRT
+              Soy un estudiante de {User.carrera} de la {User.uni}
             </Typography>
           </Grid>
           <Grid item xs={12} sm={4}>
@@ -32,35 +32,35 @@ const Footer = () => {
               Contact Me
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              Calle Falsa 123,Tucuman,ARG
+              {User.direccion},{User.residencia}
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              Email: floresdiego2012@gmail.com
+              Email: {User.email}
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              Phone: +54 381 6155136
+              Phone: {User.tel}
             </Typography>
           </Grid>
           <Grid item xs={12} sm={4}>
             <Typography variant="h6" color="text.primary" gutterBottom>
               Follow Me
             </Typography>
-            <Link href="https://github.com/DiegoF23/PortfolioUTN" color="inherit" target="_blank" sx={{  pr: 1 }}>
-              <GitHubIcon/>
+            <Link href={User.gitHub} color="inherit" target="_blank" sx={{  pr: 1 }}>
+              <GitHubIcon sx={{fontSize: 40 }}/>
             </Link >
-            <Link href="https://www.facebook.com/" color="inherit" target="_blank"> 
-              <Facebook />
+            <Link href={User.facebook} color="inherit" target="_blank"> 
+              <Facebook sx={{fontSize: 40 }} />
             </Link>
             <Link
-              href="https://www.instagram.com/"
+              href={User.instagram}
               target="_blank"
               color="inherit"
               sx={{ pl: 1, pr: 1 }}
             >
-              <Instagram />
+              <Instagram sx={{fontSize: 40 }}/>
             </Link>
-            <Link href="https://www.twitter.com/" color="inherit" target="_blank">
-              <Twitter />
+            <Link href={User.twitter} color="inherit" target="_blank">
+              <Twitter sx={{fontSize: 40 }} />
             </Link>
             
           </Grid>

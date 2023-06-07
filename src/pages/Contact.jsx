@@ -10,7 +10,7 @@ const Contact = ({navArrayLinks,User}) => {
     <Header navArrayLinks={navArrayLinks} User={User}/>
     <Grid>
       <MainContact/>
-      <Footer/>
+      <Footer User={User}/>
      </Grid>
      
     
