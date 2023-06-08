@@ -19,7 +19,7 @@ const MainHome = () => {
   return (
     <>
       <Grid>
-        <Typography variant="h1" color="initial">
+        <Typography variant="h1" color="initial" sx={{fontFamily:'Kaushan Script'}}>
           MainHome  <EngineeringIcon style={{ fontSize: 70 }}/> 
         </Typography>
         <Box

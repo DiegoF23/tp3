@@ -103,7 +103,7 @@ const MainContact = () => {
         <Grid container spacing={2}>
           <Grid sx={{mt:13}} textAlign="center" item xs={12} sm={12}>
             <br />
-            <Typography variant="h2" color="white">
+            <Typography variant="h2" color="white" sx={{fontFamily: 'Kaushan Script'}}>
               Contactame
             </Typography>
             <br />
