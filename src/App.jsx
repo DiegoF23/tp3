@@ -23,10 +23,7 @@ const navArrayLinks = [
     title: "About",
     path: "/About",
     icon: <AccountCircleIcon />,
-  }
-  
-  
-  
+  },
 ];
 const User = {
   usuario: "Flores Aguirres Diego",
@@ -34,23 +31,23 @@ const User = {
   color: "#27374D",
   CFuente: "#DDE6ED",
   CIcon: "#DDE6ED",
-  edad:28,
-  legajo:55543,
-  tel:"+54 381 6155136",
-  carrera:"Programacion",
-  uni:'UTN-FRT',
-  email:"floresdiego2012@gmail.com",
-  direccion:"calle falsa 123",
-  residencia:"Tucuman,ARG",
-  gitHub:"https://github.com/DiegoF23/PortfolioUTN",
-  facebook:"https://www.facebook.com/",
-  instagram:"https://www.instagram.com/",
-  twitter:"https://www.twitter.com/"
+  edad: 28,
+  legajo: 55543,
+  tel: "+54 381 6155136",
+  carrera: "Programacion",
+  uni: "UTN-FRT",
+  email: "floresdiego2012@gmail.com",
+  direccion: "calle falsa 123",
+  residencia: "Tucuman,ARG",
+  gitHub: "https://github.com/DiegoF23/PortfolioUTN",
+  facebook: "https://www.facebook.com/",
+  instagram: "https://www.instagram.com/",
+  twitter: "https://www.twitter.com/",
 };
 
 function App() {
   return (
-    <Box height={"101.7vh"} bgcolor={"#DDE6ED"} >
+    <Box height={"101.7vh"} bgcolor={"#DDE6ED"}>
       <Routes>
         <Route
           path="/"

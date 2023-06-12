@@ -75,7 +75,7 @@ const MainContact = () => {
   const [nombre, setNombre] = useState("");
   const [email, setEmail] = useState("");
   const [descripcion, setDescripcion] = useState("");
-  //const [id, setId] = useState(null);
+
 
   const nuevoID = () => {
     const ultimoObjeto = pedidos[pedidos.length - 1];
@@ -87,7 +87,7 @@ const MainContact = () => {
     e.preventDefault();
     const nuevoId = nuevoID();
     setPedidos([...pedidos, { id: nuevoId, nombre, email, descripcion }]);
-   
+
     sucessClick();
     e.target.reset();
   };
@@ -101,9 +101,13 @@ const MainContact = () => {
     <>
       <Container maxWidth={false} sx={{ bgcolor: "#526D82", color: "white" }}>
         <Grid container spacing={2}>
-          <Grid sx={{mt:13}} textAlign="center" item xs={12} sm={12}>
+          <Grid sx={{ mt: 13 }} textAlign="center" item xs={12} sm={12}>
             <br />
-            <Typography variant="h2" color="white" sx={{fontFamily: 'Kaushan Script'}}>
+            <Typography
+              variant="h2"
+              color="white"
+              sx={{ fontFamily: "Kaushan Script" }}
+            >
               Contactame
             </Typography>
             <br />
@@ -204,10 +208,9 @@ const MainContact = () => {
                 color="success"
                 size="large"
                 endIcon={<SendIcon />}
-                
                 sx={{
                   mt: 2,
-                  mb:1.2,
+                  mb: 1.2,
                   transition: "0.2s",
                   "&:hover": {
                     transform: "scale(1.06)",
@@ -221,7 +224,6 @@ const MainContact = () => {
 
           <Grid sx={{ ml: 2 }} item xs={12} sm={12} md={7.4} lg={7.8}>
             <Carousel
-            
               sx={{
                 transition: "0.2s",
                 "&:hover": {
@@ -239,7 +241,13 @@ const MainContact = () => {
                       padding: 0.8,
                     }}
                   >
-                    <Box sx={{ display: "flex" ,alignItems:"center" , flexDirection:"column"}}>
+                    <Box
+                      sx={{
+                        display: "flex",
+                        alignItems: "center",
+                        flexDirection: "column",
+                      }}
+                    >
                       <Img
                         src={`https://picsum.photos/id/${item.id}/100`}
                         alt="random"
@@ -263,7 +271,7 @@ const MainContact = () => {
                         onClick={() => deleteConsulta(item.id)}
                         sx={{
                           my: 1,
-                         
+
                           transition: "0.2s",
                           "&:hover": {
                             transform: "scale(1.07)",
@@ -273,7 +281,6 @@ const MainContact = () => {
                         Eliminar
                       </Button>
                     </Box>
-                    
                   </Paper>
                 </Box>
               ))}

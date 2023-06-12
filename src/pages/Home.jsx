@@ -1,20 +1,17 @@
 import React from "react";
-
-import Container from "@mui/material/Container";
-
 import Header from "../components/Header";
 import MainHome from "../components/MainHome";
 import Footer from "../components/Footer";
+import { Grid } from "@mui/material";
 
-const Home = ({navArrayLinks,User}) => {
- 
+const Home = ({ navArrayLinks, User }) => {
   return (
     <>
-      <Header navArrayLinks={navArrayLinks}  User={User}/>
-      <Container sx={{ mt: 11 }}>
+      <Header navArrayLinks={navArrayLinks} User={User} />
+      <Grid>
         <MainHome />
-        <Footer User={User}/>
-      </Container>
+        <Footer User={User} />
+      </Grid>
     </>
   );
 };

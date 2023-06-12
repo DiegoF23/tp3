@@ -8,8 +8,7 @@ import {
 } from "@mui/material";
 import React from "react";
 
-
-const NavListDrawer = ({ navArrayLinks,NavLink,setOpen }) => {
+const NavListDrawer = ({ navArrayLinks, NavLink, setOpen }) => {
   return (
     <Box
       sx={{
@@ -20,8 +19,11 @@ const NavListDrawer = ({ navArrayLinks,NavLink,setOpen }) => {
         <List>
           {navArrayLinks.map((item) => (
             <ListItem disablePadding key={item.title}>
-              <ListItemButton component={NavLink} to={item.path}
-              onClick={()=>setOpen(false)}>
+              <ListItemButton
+                component={NavLink}
+                to={item.path}
+                onClick={() => setOpen(false)}
+              >
                 <ListItemIcon>{item.icon}</ListItemIcon>
                 <ListItemText primary={item.title} />
               </ListItemButton>

@@ -52,7 +52,9 @@ const NavBar = ({ navArrayLinks, User }) => {
             {User.usuario}
           </Typography>
 
-          <Box sx={{ display: { xs: "none", sm: "flex" }, color:User.CFuente }}>
+          <Box
+            sx={{ display: { xs: "none", sm: "flex" }, color: User.CFuente }}
+          >
             {navArrayLinks.map((item) => (
               <Button
                 color="inherit"
@@ -60,7 +62,11 @@ const NavBar = ({ navArrayLinks, User }) => {
                 component={NavLink}
                 to={item.path}
               >
-                <IconButton color="inherit" size="large" sx={{ mt: -1 , color:User.CIcon}}>
+                <IconButton
+                  color="inherit"
+                  size="large"
+                  sx={{ mt: -1, color: User.CIcon }}
+                >
                   {item.icon}
                 </IconButton>
                 {item.title}
